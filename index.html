@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gold & Silver Traders — Serious Buyers of Bulk Gold</title>
+  <meta name="description" content="Gold & Silver Traders facilitates large-quantity gold transactions for institutions, estates, miners, and dealers. Get a fair, fast, confidential offer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --gold:       #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-dim:   #7A6230;
+      --ink:        #0E0D0A;
+      --paper:      #F5F0E8;
+      --paper-deep: #EDE6D6;
+      --rule:       rgba(201,168,76,0.25);
+      --text:       #2A2619;
+      --muted:      #7A7060;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(14,13,10,0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10rem 3rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-line {
+      position: absolute;
+      right: 8%;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--gold-dim), transparent);
+      opacity: 0.4;
+    }
+    .hero-bg-line-2 {
+      position: absolute;
+      right: 30%;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--rule), transparent);
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .hero-headline {
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      max-width: 800px;
+      color: var(--paper);
+      opacity: 0;
+      animation: fadeUp 0.9s 0.35s forwards;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      margin-top: 2.5rem;
+      max-width: 520px;
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: rgba(245,240,232,0.65);
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.55s forwards;
+    }
+
+    .hero-cta-group {
+      margin-top: 3.5rem;
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.7s forwards;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.9rem 2.4rem;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-ghost {
+      display: inline-block;
+      padding: 0.9rem 2.4rem;
+      border: 1px solid var(--gold-dim);
+      color: var(--gold-light);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--gold-light); color: var(--paper); transform: translateY(-2px); }
+
+    /* ── DIVIDER ── */
+    .rule-section {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 3rem;
+      margin: 1rem 0;
+    }
+    .rule-section::before,
+    .rule-section::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .rule-section span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      white-space: nowrap;
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 7rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--paper);
+      margin-bottom: 1.5rem;
+    }
+
+    h2 em { font-style: italic; color: var(--gold-light); }
+
+    p {
+      color: rgba(245,240,232,0.7);
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ── WHY SELL ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+      margin-top: 4rem;
+    }
+
+    .why-card {
+      background: rgba(201,168,76,0.04);
+      border: 1px solid var(--rule);
+      padding: 2.5rem;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .why-card:hover { background: rgba(201,168,76,0.08); }
+
+    .why-card .card-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      margin-bottom: 1.25rem;
+    }
+
+    .why-card h3 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--paper);
+      margin-bottom: 0.75rem;
+    }
+
+    .why-card p {
+      font-size: 0.95rem;
+    }
+
+    /* ── WHAT WE BUY ── */
+    .buy-section { background: rgba(245,240,232,0.025); }
+
+    .buy-list {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .buy-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .buy-item::before {
+      content: '—';
+      color: var(--gold);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .buy-item span {
+      color: rgba(245,240,232,0.75);
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .process-steps {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      position: relative;
+    }
+
+    .step {
+      position: relative;
+    }
+
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: var(--gold-dim);
+      line-height: 1;
+      margin-bottom: 1rem;
+      opacity: 0.6;
+    }
+
+    .step h3 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--gold-light);
+      margin-bottom: 0.6rem;
+    }
+
+    .step p { font-size: 0.95rem; }
+
+    /* ── WHO WE SERVE ── */
+    .who-section {
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .who-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .who-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 2rem;
+    }
+
+    .tag {
+      border: 1px solid var(--gold-dim);
+      padding: 0.4rem 1rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── PRICING NOTE ── */
+    .pricing-strip {
+      background: var(--gold);
+      color: var(--ink);
+      text-align: center;
+      padding: 1.75rem 3rem;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .pricing-strip span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-right: 1.5rem;
+      opacity: 0.7;
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      margin-top: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--rule);
+      padding: 1.75rem 0;
+    }
+    .faq-item:last-child { border-bottom: 1px solid var(--rule); }
+
+    .faq-q {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--paper);
+      margin-bottom: 0.6rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-q::after {
+      content: '+';
+      font-family: 'DM Mono', monospace;
+      font-size: 1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .faq-a {
+      font-size: 0.98rem;
+      color: rgba(245,240,232,0.65);
+      line-height: 1.8;
+      display: none;
+      padding-top: 0.5rem;
+    }
+
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-q::after { content: '−'; }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 7rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-form-wrap {
+      background: rgba(201,168,76,0.05);
+      border: 1px solid var(--rule);
+      padding: 3rem;
+    }
+
+    .contact-form-wrap h3 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--paper);
+      margin-bottom: 2rem;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    input, select, textarea {
+      background: rgba(245,240,232,0.04);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--paper);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+    }
+
+    select option { background: var(--ink); }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    .form-submit {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 1rem;
+      background: var(--gold);
+      color: var(--ink);
+      border: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--gold-light); }
+
+    .contact-info { padding-top: 0.5rem; }
+    .contact-info h2 { margin-bottom: 1.25rem; }
+    .contact-info p { margin-bottom: 1.5rem; }
+
+    .contact-detail {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .c-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .c-row .c-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    .c-row a, .c-row span {
+      color: var(--gold-light);
+      font-size: 1.1rem;
+      text-decoration: none;
+    }
+    .c-row a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--gold-dim);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      section { padding: 5rem 1.5rem; }
+      .hero { padding: 8rem 1.5rem 5rem; }
+      .who-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-section { grid-template-columns: 1fr; padding: 5rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Gold &amp; Silver Traders</div>
+    <ul class="nav-links">
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg-line"></div>
+    <div class="hero-bg-line-2"></div>
+
+    <p class="hero-eyebrow">Bulk Gold Acquisition Specialists</p>
+    <h1 class="hero-headline">
+      Serious buyers for<br><em>serious quantities</em><br>of gold.
+    </h1>
+    <p class="hero-sub">
+      Gold &amp; Silver Traders facilitates large-volume gold transactions with speed, discretion, and pricing anchored to live spot. No middlemen. No lowball offers. No wasted time.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#contact" class="btn-primary">Get an Offer</a>
+      <a href="#process" class="btn-ghost">How It Works</a>
+    </div>
+  </div>
+
+  <div class="rule-section"><span>Established buyers &bull; International reach &bull; Confidential transactions</span></div>
+
+  <!-- WHY SELL WITH US -->
+  <section id="why">
+    <p class="section-label">Why Gold &amp; Silver Traders</p>
+    <h2>You deserve a buyer who<br><em>matches your scale.</em></h2>
+    <p style="max-width:560px;">Most gold buyers are built for small retail. We operate at a different level — designed for bulk sellers who need a knowledgeable, well-capitalized counterparty they can trust.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <p class="card-num">01</p>
+        <h3>Live-Spot Pricing</h3>
+        <p>Our offers are based on real-time market data. You'll always know exactly what gold is trading for and how our offer relates to it — no mystery, no games.</p>
+      </div>
+      <div class="why-card">
+        <p class="card-num">02</p>
+        <h3>Large Quantities Welcome</h3>
+        <p>We specialize in transactions that exceed what local dealers and pawn shops are set up to handle. Kilos, hundreds of ounces, full estate lots — this is what we do.</p>
+      </div>
+      <div class="why-card">
+        <p class="card-num">03</p>
+        <h3>Complete Confidentiality</h3>
+        <p>Every inquiry is handled with full discretion. We understand that significant asset transactions call for privacy, and we protect it.</p>
+      </div>
+      <div class="why-card">
+        <p class="card-num">04</p>
+        <h3>Fast, Decisive Process</h3>
+        <p>No weeks of back-and-forth. Once we understand your holdings, we move quickly — from initial contact to formal offer in a matter of days, not weeks.</p>
+      </div>
+      <div class="why-card">
+        <p class="card-num">05</p>
+        <h3>International Capability</h3>
+        <p>We have the relationships and logistics experience to facilitate cross-border transactions. Geography is rarely a barrier for the right deal.</p>
+      </div>
+      <div class="why-card">
+        <p class="card-num">06</p>
+        <h3>Direct Buyer — No Middlemen</h3>
+        <p>You're dealing directly with us. That means better pricing for you and a cleaner, faster process for everyone — no layers of brokers taking their cut.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE BUY -->
+  <section id="what" style="background: rgba(201,168,76,0.03); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); max-width:100%">
+    <div style="max-width:1200px; margin:0 auto;">
+      <p class="section-label">What We Buy</p>
+      <h2>Gold in <em>any form,</em><br>at scale.</h2>
+      <p style="max-width:520px;">We acquire gold across a wide range of forms and origins. If you're unsure whether your holdings qualify, reach out — we'll give you a straight answer.</p>
+
+      <div class="buy-list" style="margin-top:3rem;">
+        <div class="buy-item"><span>Gold bullion bars (any assay)</span></div>
+        <div class="buy-item"><span>Bullion coins — Krugerrands, Eagles, Maples, Philharmonics</span></div>
+        <div class="buy-item"><span>Numismatic and pre-1933 coins</span></div>
+        <div class="buy-item"><span>Gold jewelry (fine and commercial grade)</span></div>
+        <div class="buy-item"><span>Scrap gold and dental gold</span></div>
+        <div class="buy-item"><span>Estate and trust holdings</span></div>
+        <div class="buy-item"><span>Placer and raw mined gold</span></div>
+        <div class="buy-item"><span>Gold dust and doré bars</span></div>
+        <div class="buy-item"><span>Gold from corporate liquidations</span></div>
+        <div class="buy-item"><span>Refiners' outturns and settlements</span></div>
+        <div class="buy-item"><span>Gold held in allocated storage</span></div>
+        <div class="buy-item"><span>Partial or full collections</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="process">
+    <p class="section-label">The Process</p>
+    <h2>Straightforward from<br><em>first contact to closing.</em></h2>
+    <p style="max-width:540px;">We've refined this process across years of transactions to be as efficient and transparent as possible for serious sellers.</p>
+
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">I</div>
+        <h3>Initial Contact</h3>
+        <p>Reach out by email or the form below. Describe your holdings — type, quantity, form, and approximate purity if known. No commitment required at this stage.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">II</div>
+        <h3>Confidential Consultation</h3>
+        <p>We'll follow up promptly to discuss the specifics, answer your questions, and determine whether assay or documentation is needed before pricing.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">III</div>
+        <h3>Formal Offer</h3>
+        <p>You receive a written offer based on verified spot pricing and the specifics of your holding. The offer is clear, documented, and time-stamped.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">IV</div>
+        <h3>Transaction &amp; Settlement</h3>
+        <p>Once agreed, we coordinate logistics, transfer, and payment through a secure, documented process — structured to protect both parties.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING STRIP -->
+  <div class="pricing-strip">
+    <span>Live Spot Reference</span>
+    Offers priced transparently against London Bullion Market Association (LBMA) spot — the global gold pricing benchmark.
+  </div>
+
+  <!-- WHO WE SERVE -->
+  <section id="who" style="max-width:100%; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);">
+    <div class="who-inner" style="max-width:1200px; margin:0 auto;">
+      <div>
+        <p class="section-label">Who We Work With</p>
+        <h2>Built for sellers<br>with <em>serious holdings.</em></h2>
+        <p>Gold &amp; Silver Traders works with a wide range of clients — from private individuals to institutions — who share one thing in common: they have significant gold and need a reliable, professional buyer.</p>
+        <div class="who-tags">
+          <span class="tag">Estate Executors</span>
+          <span class="tag">Trust Administrators</span>
+          <span class="tag">Coin &amp; Bullion Dealers</span>
+          <span class="tag">Miners &amp; Producers</span>
+          <span class="tag">Jewelry Manufacturers</span>
+          <span class="tag">Refinery Outturns</span>
+          <span class="tag">Private Collectors</span>
+          <span class="tag">Corporate Liquidations</span>
+          <span class="tag">Import/Export Firms</span>
+          <span class="tag">Overseas Sellers</span>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:1.35rem; font-weight:300; line-height:1.65; color:var(--paper);">
+          "The gold market rewards patience and punishes inexperience. Whether you're liquidating a collection built over decades or facilitating a corporate asset sale, you deserve a counterparty who knows what they're doing and treats you accordingly."
+        </p>
+        <p style="margin-top:1.5rem; font-family:'DM Mono', monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-dim);">— Gold &amp; Silver Traders</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <p class="section-label">Frequently Asked Questions</p>
+    <h2>Answers to what<br><em>sellers ask us most.</em></h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What is the minimum quantity you purchase?</div>
+        <div class="faq-a">We focus on bulk transactions, but we evaluate each inquiry individually. As a general guideline, sellers with 10 or more troy ounces of gold will receive our full attention. For very large holdings — kilograms and above — we have dedicated processes in place.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do you determine the price you offer?</div>
+        <div class="faq-a">Our offers are anchored to the LBMA spot price at the time of the transaction, adjusted for the form, purity, and condition of the gold. We are transparent about the calculation — you'll see exactly how the offer is derived.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need to ship my gold before receiving an offer?</div>
+        <div class="faq-a">No. We provide preliminary offers based on your description and documentation before any gold changes hands. Physical verification, if required, is coordinated only after terms are agreed upon in principle.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you handle international transactions?</div>
+        <div class="faq-a">Yes. We have experience facilitating cross-border gold transactions in compliance with applicable export and import regulations. International sellers are welcome to reach out, and we'll discuss the specifics of your situation directly.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How is payment made?</div>
+        <div class="faq-a">Payment is made via secure wire transfer upon completion of the transaction. All terms, including payment method and timing, are agreed upon in writing before any transfer of gold takes place.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is my inquiry kept confidential?</div>
+        <div class="faq-a">Absolutely. All inquiries, communications, and transaction details are held in strict confidence. We never share seller information with third parties without explicit consent.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What documentation will I need to provide?</div>
+        <div class="faq-a">Requirements vary by transaction size and origin of the gold. At minimum, standard identification and proof of ownership are required. We'll walk you through any documentation needs during our initial consultation — nothing will catch you off guard.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <div id="contact" style="background: rgba(201,168,76,0.025); border-top: 1px solid var(--rule);">
+    <div class="contact-section">
+      <div class="contact-info">
+        <p class="section-label">Get In Touch</p>
+        <h2>Ready to discuss<br><em>your holdings?</em></h2>
+        <p>Send us a brief description of what you have. We respond to all serious inquiries promptly and in confidence. There is no obligation to proceed, and no pressure — just a straightforward conversation.</p>
+        <div class="contact-detail">
+          <div class="c-row">
+            <span class="c-label">Email</span>
+            <a href="mailto:harlan@goldsilvertraders.com">harlan@goldsilvertraders.com</a>
+          </div>
+          <div class="c-row">
+            <span class="c-label">Website</span>
+            <span>goldsilvertraders.com</span>
+          </div>
+          <div class="c-row">
+            <span class="c-label">Response Time</span>
+            <span>Within 1 business day</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <h3>Start the Conversation</h3>
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Full name" required />
+            </div>
+            <div class="form-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-field">
+              <label for="type">Type of Gold</label>
+              <select id="type" name="gold_type">
+                <option value="">Select a category…</option>
+                <option>Bullion bars</option>
+                <option>Bullion coins</option>
+                <option>Numismatic coins</option>
+                <option>Jewelry</option>
+                <option>Scrap / dental gold</option>
+                <option>Placer / raw gold</option>
+                <option>Estate or trust holding</option>
+                <option>Other / mixed</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="quantity">Approximate Quantity</label>
+              <input type="text" id="quantity" name="quantity" placeholder="e.g. 50 troy oz, 2 kg, ~200 coins" />
+            </div>
+            <div class="form-field">
+              <label for="message">Additional Details</label>
+              <textarea id="message" name="message" placeholder="Purity, condition, location, timeline, or anything else relevant…"></textarea>
+            </div>
+            <button type="submit" class="form-submit">Submit Inquiry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Gold &amp; Silver Traders. All rights reserved.</p>
+    <p>All transactions subject to applicable federal, state, and international regulations.</p>
+    <p><a href="mailto:harlan@goldsilvertraders.com" style="color:var(--gold-dim); text-decoration:none;">harlan@goldsilvertraders.com</a></p>
+  </footer>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>
