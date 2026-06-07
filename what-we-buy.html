@@ -48,7 +48,15 @@
 </head>
 <body>
 
-  <nav id="site-nav"></nav>
+    <!-- TICKER -->
+  <div class="ticker-bar">
+    <span class="ticker-label"><span class="ticker-dot"></span> Live Spot</span>
+    <div class="ticker-items" id="metals-ticker">
+      <div class="ticker-item"><span class="ticker-metal" style="color:var(--muted)">Loading prices...</span></div>
+    </div>
+  </div>
+
+<nav id="site-nav"></nav>
 
   <!-- PAGE HERO -->
   <div class="page-hero">
@@ -210,6 +218,6 @@
   <footer id="site-footer"></footer>
 
   <script src="shared.js"></script>
-  <script>renderNav('buy'); renderFooter();</script>
+  <script>renderTicker(); renderNav('buy'); renderFooter();</script>
 </body>
 </html>

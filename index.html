@@ -3,43 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Primary SEO -->
   <title>Sell Gold in Bulk | Large Quantity Gold Buyers | Gold & Silver Traders</title>
   <meta name="description" content="Gold & Silver Traders buys large quantities of gold — bullion, coins, estate lots, placer gold, and doré — from sellers worldwide. LBMA spot-referenced pricing. Confidential. No middlemen." />
-  <meta name="keywords" content="sell gold in bulk, bulk gold buyers, large quantity gold buyers, sell gold bullion, sell gold internationally, wholesale gold buyers, sell gold online, gold buying company, best place to sell gold, sell gold for cash" />
+  <meta name="keywords" content="sell gold in bulk, bulk gold buyers, large quantity gold buyers, sell gold bullion, sell gold internationally, wholesale gold buyers" />
   <link rel="canonical" href="https://www.goldsilvertraders.com/" />
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="Gold & Silver Traders" />
-
-  <!-- Open Graph (Facebook / LinkedIn sharing) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Sell Gold in Bulk | Gold & Silver Traders" />
-  <meta property="og:description" content="Serious buyers for serious quantities. LBMA spot-referenced pricing, complete confidentiality, international capability. Get a formal offer today." />
+  <meta property="og:description" content="Serious buyers for serious quantities. LBMA spot-referenced pricing, complete confidentiality, international capability." />
   <meta property="og:url" content="https://www.goldsilvertraders.com/" />
   <meta property="og:site_name" content="Gold & Silver Traders" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Sell Gold in Bulk | Gold & Silver Traders" />
-  <meta name="twitter:description" content="Serious buyers for serious quantities. LBMA spot-referenced pricing, complete confidentiality, international capability. Get a formal offer today." />
-
-  <!-- Structured Data (Schema.org) -->
   <script type="application/ld+json">
   {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Gold & Silver Traders",
-      "url": "https://www.goldsilvertraders.com",
-      "description": "Gold & Silver Traders buys large quantities of gold bullion, coins, estate lots, placer gold, and doré from sellers worldwide.",
-      "email": "harlan@goldsilvertraders.com",
-      "areaServed": "Worldwide",
-      "serviceType": "Gold Buying and Precious Metals Acquisition",
-      "priceRange": "LBMA Spot-Referenced"
-    }
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Gold & Silver Traders",
+    "url": "https://www.goldsilvertraders.com",
+    "email": "harlan@goldsilvertraders.com",
+    "description": "Gold & Silver Traders buys large quantities of gold bullion, coins, estate lots, placer gold, and doré from sellers worldwide.",
+    "areaServed": "Worldwide",
+    "serviceType": "Gold Buying and Precious Metals Acquisition"
+  }
   </script>
-
-  <link rel="stylesheet" href="style.css" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3B2HX35TWG"></script>
   <script>
@@ -48,50 +33,212 @@
     gtag("js", new Date());
     gtag("config", "G-3B2HX35TWG");
   </script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 3rem;
+      background: var(--black);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 70% 50%, rgba(201,168,76,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 80% at 100% 0%, rgba(201,168,76,0.04) 0%, transparent 60%);
+    }
+
+    .hero-line {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--gold-rule), transparent);
+    }
+    .hero-line-1 { right: 33%; }
+    .hero-line-2 { right: 10%; opacity: 0.4; }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.08;
+      margin-bottom: 2rem;
+      letter-spacing: 0.01em;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero h1 strong { font-weight: 600; display: block; }
+
+    .hero-body {
+      font-size: 1.05rem;
+      color: var(--text);
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+      max-width: 440px;
+    }
+
+    .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* Stats panel */
+    .hero-panel {
+      border: 1px solid var(--border);
+      background: rgba(22,20,12,0.6);
+      backdrop-filter: blur(8px);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .panel-row {
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border2);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .panel-row:first-child { padding-top: 0; }
+    .panel-row:last-child { padding-bottom: 0; border-bottom: none; }
+
+    .panel-num {
+      font-family: 'Cormorant', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .panel-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Sections */
+    .who-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+    .tag {
+      border: 1px solid var(--border);
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .tag:hover { border-color: var(--gold-rule); color: var(--gold-light); }
+
+    @media (max-width: 860px) {
+      .hero { min-height: auto; padding: 4rem 1.5rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero h1 { font-size: 3rem; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- TICKER -->
+  <div class="ticker-bar">
+    <span class="ticker-label"><span class="ticker-dot"></span> Live Spot</span>
+    <div class="ticker-items" id="metals-ticker">
+      <div class="ticker-item"><span class="ticker-metal" style="color:var(--muted)">Loading prices...</span></div>
+    </div>
+  </div>
 
   <nav id="site-nav"></nav>
 
   <!-- HERO -->
-  <div style="background: var(--white); border-bottom: 1px solid var(--border);">
-    <div class="hero">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-line hero-line-1"></div>
+    <div class="hero-line hero-line-2"></div>
+    <div class="hero-inner">
       <div>
         <p class="hero-eyebrow fade-up">Bulk Gold Acquisition Specialists</p>
-        <h1 class="fade-up-2">Serious buyers for <em>serious quantities</em> of gold.</h1>
-        <p class="hero-body fade-up-3">Gold & Silver Traders facilitates large-volume gold transactions with speed, discretion, and pricing anchored to live spot. No middlemen. No lowball offers. No wasted time.</p>
-        <div class="hero-cta-group fade-up-3">
+        <h1 class="fade-up-2">
+          Serious buyers<br>for <em>serious</em>
+          <strong>quantities of gold.</strong>
+        </h1>
+        <p class="hero-body fade-up-3">Gold & Silver Traders facilitates large-volume gold transactions with speed, discretion, and pricing anchored to live LBMA spot. No middlemen. No lowball offers.</p>
+        <div class="hero-cta-group fade-up-4">
           <a href="contact.html" class="btn-primary">Get an Offer</a>
           <a href="how-it-works.html" class="btn-outline">How It Works</a>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="stat-row">
-          <div class="stat-num">LBMA</div>
-          <div class="stat-label">Spot-Referenced Pricing</div>
+
+      <div class="hero-panel fade-up-2">
+        <div class="panel-row">
+          <div class="panel-num">LBMA</div>
+          <div class="panel-label">Spot-Referenced Pricing</div>
         </div>
-        <div class="stat-row">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Confidential Transactions</div>
+        <div class="panel-row">
+          <div class="panel-num">100%</div>
+          <div class="panel-label">Confidential Transactions</div>
         </div>
-        <div class="stat-row">
-          <div class="stat-num">Direct</div>
-          <div class="stat-label">No Middlemen or Brokers</div>
+        <div class="panel-row">
+          <div class="panel-num">Direct</div>
+          <div class="panel-label">No Middlemen or Brokers</div>
         </div>
-        <div class="stat-row">
-          <div class="stat-num">Intl.</div>
-          <div class="stat-label">International Capability</div>
+        <div class="panel-row">
+          <div class="panel-num">Intl.</div>
+          <div class="panel-label">International Capability</div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- WHY US -->
-  <div class="section-tinted">
+  <div style="background: var(--dark); border-top: 1px solid var(--border);">
     <div class="section-inner">
       <p class="section-label">Why Gold & Silver Traders</p>
       <h2>A buyer built for <em>your scale.</em></h2>
-      <p class="section-lead">Most gold buyers are set up for small retail transactions. We operate at a different level — designed for bulk sellers who need a knowledgeable, well-capitalized counterparty.</p>
+      <p class="section-lead">Most gold buyers are set up for small retail. We operate at a different level — designed for bulk sellers who need a knowledgeable, well-capitalized counterparty.</p>
 
       <div class="card-grid">
         <div class="card">
@@ -112,7 +259,7 @@
         <div class="card">
           <p class="card-num">04</p>
           <h3>Direct Buyer</h3>
-          <p>You deal directly with us — no layers of brokers taking their cut. That means better pricing for you and a cleaner, faster process.</p>
+          <p>You deal directly with us — no layers of brokers taking their cut. Better pricing for you, a cleaner process for everyone.</p>
         </div>
         <div class="card">
           <p class="card-num">05</p>
@@ -128,29 +275,29 @@
     </div>
   </div>
 
-  <!-- GOLD STRIP -->
+  <!-- STRIP -->
   <div class="gold-strip">
     <strong>Offers priced against the LBMA spot rate</strong> — the global gold pricing benchmark used by institutions worldwide.
   </div>
 
   <!-- WHO WE SERVE -->
-  <div class="section-light">
+  <div style="border-top: 1px solid var(--border);">
     <div class="section-inner">
       <p class="section-label">Who We Work With</p>
       <h2>Built for sellers with <em>significant holdings.</em></h2>
-      <p class="section-lead">We work with a wide range of clients who share one thing: they have substantial gold and need a reliable, professional buyer.</p>
+      <p class="section-lead">We work with a wide range of clients who share one thing: substantial gold and a need for a reliable, professional buyer.</p>
 
-      <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.5rem;">
-        <span style="border: 1.5px solid var(--border); padding: 0.45rem 1rem; font-size: 0.82rem; font-weight: 500; color: var(--text);">Estate Executors</span>
-        <span style="border: 1.5px solid var(--border); padding: 0.45rem 1rem; font-size: 0.82rem; font-weight: 500; color: var(--text);">Trust Administrators</span>
-        <span style="border: 1.5px solid var(--border); padding: 0.45rem 1rem; font-size: 0.82rem; font-weight: 500; color: var(--text);">Coin & Bullion Dealers</span>
-        <span style="border: 1.5px solid var(--border); padding: 0.45rem 1rem; font-size: 0.82rem; font-weight: 500; color: var(--text);">Miners & Producers</span>
-        <span style="border: 1.5px solid var(--border); padding: 0.45rem 1rem; font-size: 0.82rem; font-weight: 500; color: var(--text);">Jewelry Manufacturers</span>
-        <span style="border: 1.5px solid var(--border); padding: 0.45rem 1rem; font-size: 0.82rem; font-weight: 500; color: var(--text);">Corporate Liquidations</span>
-        <span style="border: 1.5px solid var(--border); padding: 0.45rem 1rem; font-size: 0.82rem; font-weight: 500; color: var(--text);">Private Collectors</span>
-        <span style="border: 1.5px solid var(--border); padding: 0.45rem 1rem; font-size: 0.82rem; font-weight: 500; color: var(--text);">Import / Export Firms</span>
-        <span style="border: 1.5px solid var(--border); padding: 0.45rem 1rem; font-size: 0.82rem; font-weight: 500; color: var(--text);">International Sellers</span>
-        <span style="border: 1.5px solid var(--border); padding: 0.45rem 1rem; font-size: 0.82rem; font-weight: 500; color: var(--text);">Refinery Outturns</span>
+      <div class="who-tags">
+        <span class="tag">Estate Executors</span>
+        <span class="tag">Trust Administrators</span>
+        <span class="tag">Coin & Bullion Dealers</span>
+        <span class="tag">Miners & Producers</span>
+        <span class="tag">Jewelry Manufacturers</span>
+        <span class="tag">Corporate Liquidations</span>
+        <span class="tag">Private Collectors</span>
+        <span class="tag">Import / Export Firms</span>
+        <span class="tag">International Sellers</span>
+        <span class="tag">Refinery Outturns</span>
       </div>
 
       <div style="margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap;">
@@ -163,6 +310,6 @@
   <footer id="site-footer"></footer>
 
   <script src="shared.js"></script>
-  <script>renderNav('home'); renderFooter();</script>
+  <script>renderNav('home'); renderFooter(); renderTicker();</script>
 </body>
 </html>
