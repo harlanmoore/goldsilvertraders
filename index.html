@@ -12,100 +12,43 @@
   <meta property="og:title" content="Sell Gold in Bulk | Gold & Silver Traders" />
   <meta property="og:description" content="Serious buyers for serious quantities. LBMA spot-referenced pricing, complete confidentiality, international capability." />
   <meta property="og:url" content="https://www.goldsilvertraders.com/" />
-  <meta property="og:site_name" content="Gold & Silver Traders" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Gold & Silver Traders",
-    "url": "https://www.goldsilvertraders.com",
-    "email": "harlan@goldsilvertraders.com",
-    "description": "Gold & Silver Traders buys large quantities of gold bullion, coins, estate lots, placer gold, and doré from sellers worldwide.",
-    "areaServed": "Worldwide",
-    "serviceType": "Gold Buying and Precious Metals Acquisition"
-  }
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"Gold & Silver Traders","url":"https://www.goldsilvertraders.com","email":"harlan@goldsilvertraders.com","description":"Bulk gold buyers serving sellers worldwide.","areaServed":"Worldwide","serviceType":"Gold Buying"}
   </script>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3B2HX35TWG"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-3B2HX35TWG");
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-3B2HX35TWG');</script>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── HERO ── */
+    /* HERO */
     .hero {
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding: 6rem 3rem;
-      background: var(--black);
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 60% at 70% 50%, rgba(201,168,76,0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 80% at 100% 0%, rgba(201,168,76,0.04) 0%, transparent 60%);
-    }
-
-    .hero-line {
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, var(--gold-rule), transparent);
-    }
-    .hero-line-1 { right: 33%; }
-    .hero-line-2 { right: 10%; opacity: 0.4; }
-
-    .hero-inner {
-      max-width: 1200px;
+      max-width: 1160px;
       margin: 0 auto;
-      width: 100%;
+      padding: 7rem 3rem 5rem;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 5rem;
       align-items: center;
-      position: relative;
-      z-index: 1;
     }
 
     .hero-eyebrow {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.62rem;
+      font-size: 0.65rem;
       font-weight: 600;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 30px;
-      height: 1px;
-      background: var(--gold);
+      margin-bottom: 1.5rem;
     }
 
     .hero h1 {
-      font-family: 'Cormorant', serif;
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.08;
-      margin-bottom: 2rem;
-      letter-spacing: 0.01em;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.02em;
     }
-    .hero h1 em { font-style: italic; color: var(--gold-light); }
-    .hero h1 strong { font-weight: 600; display: block; }
+    .hero h1 em { font-style: italic; color: var(--gold); }
 
     .hero-body {
       font-size: 1.05rem;
@@ -113,71 +56,108 @@
       font-weight: 300;
       line-height: 1.85;
       margin-bottom: 2.5rem;
-      max-width: 440px;
+      max-width: 420px;
     }
 
-    .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-cta-group { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
 
-    /* Stats panel */
-    .hero-panel {
+    /* Photo card */
+    .hero-img-wrap {
+      position: relative;
+    }
+    .hero-img-wrap img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 24px;
+      display: block;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
       border: 1px solid var(--border);
-      background: rgba(22,20,12,0.6);
-      backdrop-filter: blur(8px);
-      padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
     }
-
-    .panel-row {
-      padding: 1.75rem 0;
-      border-bottom: 1px solid var(--border2);
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-    .panel-row:first-child { padding-top: 0; }
-    .panel-row:last-child { padding-bottom: 0; border-bottom: none; }
-
-    .panel-num {
-      font-family: 'Cormorant', serif;
-      font-size: 2.8rem;
-      font-weight: 300;
-      color: var(--gold);
+    .badge-item { display: flex; flex-direction: column; gap: 0.15rem; }
+    .badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--ink);
       line-height: 1;
     }
-
-    .panel-label {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
+    .badge-lbl {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
     }
+    .badge-div { width: 1px; height: 36px; background: var(--border); }
 
-    /* Sections */
-    .who-tags {
+    /* Full-bleed photo section */
+    .photo-strip {
+      width: 100%;
+      height: 55vh;
+      min-height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Two-col layout */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .process-steps { display: flex; flex-direction: column; gap: 0; }
+    .p-step {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.5rem;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
     }
-    .tag {
-      border: 1px solid var(--border);
-      padding: 0.4rem 1rem;
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      color: var(--text);
-      transition: border-color 0.2s, color 0.2s;
+    .p-step:last-child { border-bottom: none; }
+    .p-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--gold-pale);
+      border: 1px solid rgba(184,146,42,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--gold);
+      flex-shrink: 0;
     }
-    .tag:hover { border-color: var(--gold-rule); color: var(--gold-light); }
+    .p-content h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+    .p-content p { font-size: 0.88rem; color: var(--text); font-weight: 300; line-height: 1.7; }
 
     @media (max-width: 860px) {
-      .hero { min-height: auto; padding: 4rem 1.5rem; }
-      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero { grid-template-columns: 1fr; padding: 4rem 1.5rem 3rem; gap: 3rem; }
       .hero h1 { font-size: 3rem; }
+      .two-col { grid-template-columns: 1fr; gap: 3rem; }
+      .photo-strip { height: 40vw; min-height: 240px; }
     }
   </style>
 </head>
@@ -187,7 +167,7 @@
   <div class="ticker-bar">
     <span class="ticker-label"><span class="ticker-dot"></span> Live Spot</span>
     <div class="ticker-items" id="metals-ticker">
-      <div class="ticker-item"><span class="ticker-metal" style="color:var(--muted)">Loading prices...</span></div>
+      <div class="ticker-item"><span class="ticker-metal" style="color:var(--muted)">Loading…</span></div>
     </div>
   </div>
 
@@ -195,99 +175,135 @@
 
   <!-- HERO -->
   <div class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-line hero-line-1"></div>
-    <div class="hero-line hero-line-2"></div>
-    <div class="hero-inner">
-      <div>
-        <p class="hero-eyebrow fade-up">Bulk Gold Acquisition Specialists</p>
-        <h1 class="fade-up-2">
-          Serious buyers<br>for <em>serious</em>
-          <strong>quantities of gold.</strong>
-        </h1>
-        <p class="hero-body fade-up-3">Gold & Silver Traders facilitates large-volume gold transactions with speed, discretion, and pricing anchored to live LBMA spot. No middlemen. No lowball offers.</p>
-        <div class="hero-cta-group fade-up-4">
-          <a href="contact.html" class="btn-primary">Get an Offer</a>
-          <a href="how-it-works.html" class="btn-outline">How It Works</a>
-        </div>
-      </div>
-
-      <div class="hero-panel fade-up-2">
-        <div class="panel-row">
-          <div class="panel-num">LBMA</div>
-          <div class="panel-label">Spot-Referenced Pricing</div>
-        </div>
-        <div class="panel-row">
-          <div class="panel-num">100%</div>
-          <div class="panel-label">Confidential Transactions</div>
-        </div>
-        <div class="panel-row">
-          <div class="panel-num">Direct</div>
-          <div class="panel-label">No Middlemen or Brokers</div>
-        </div>
-        <div class="panel-row">
-          <div class="panel-num">Intl.</div>
-          <div class="panel-label">International Capability</div>
-        </div>
+    <div>
+      <p class="hero-eyebrow fade-up">Bulk Gold Acquisition Specialists</p>
+      <h1 class="fade-up-2">We buy gold at <em>serious</em> scale.</h1>
+      <p class="hero-body fade-up-3">Gold & Silver Traders facilitates large-volume gold transactions with speed, discretion, and pricing anchored to live LBMA spot. No middlemen. No lowball offers. No wasted time.</p>
+      <div class="hero-cta-group fade-up-4">
+        <a href="contact.html" class="btn-primary">Get an Offer →</a>
+        <a href="how-it-works.html" class="btn-outline">How It Works</a>
       </div>
     </div>
-  </div>
 
-  <!-- WHY US -->
-  <div style="background: var(--dark); border-top: 1px solid var(--border);">
-    <div class="section-inner">
-      <p class="section-label">Why Gold & Silver Traders</p>
-      <h2>A buyer built for <em>your scale.</em></h2>
-      <p class="section-lead">Most gold buyers are set up for small retail. We operate at a different level — designed for bulk sellers who need a knowledgeable, well-capitalized counterparty.</p>
-
-      <div class="card-grid">
-        <div class="card">
-          <p class="card-num">01</p>
-          <h3>Live-Spot Pricing</h3>
-          <p>Our offers are based on real-time LBMA market data. You'll know exactly what gold is trading for and how our offer relates to it — no mystery, no games.</p>
+    <div class="hero-img-wrap fade-up-2">
+      <img src="harlan.jpeg" alt="Harlan, founder of Gold & Silver Traders" />
+      <div class="hero-badge">
+        <div class="badge-item">
+          <div class="badge-num">20+</div>
+          <div class="badge-lbl">Years in Gold</div>
         </div>
-        <div class="card">
-          <p class="card-num">02</p>
-          <h3>Large Quantities Welcome</h3>
-          <p>We specialize in transactions that exceed what local dealers can handle. Kilos, hundreds of ounces, full estate lots — this is what we do.</p>
+        <div class="badge-div"></div>
+        <div class="badge-item">
+          <div class="badge-num">3</div>
+          <div class="badge-lbl">Continents</div>
         </div>
-        <div class="card">
-          <p class="card-num">03</p>
-          <h3>Complete Confidentiality</h3>
-          <p>Every inquiry is handled with full discretion. Significant asset transactions call for privacy, and we protect it absolutely.</p>
-        </div>
-        <div class="card">
-          <p class="card-num">04</p>
-          <h3>Direct Buyer</h3>
-          <p>You deal directly with us — no layers of brokers taking their cut. Better pricing for you, a cleaner process for everyone.</p>
-        </div>
-        <div class="card">
-          <p class="card-num">05</p>
-          <h3>International Capability</h3>
-          <p>We have the relationships and logistics experience to facilitate cross-border transactions compliantly. Geography is rarely a barrier.</p>
-        </div>
-        <div class="card">
-          <p class="card-num">06</p>
-          <h3>Fast, Decisive Process</h3>
-          <p>From initial contact to formal written offer in days, not weeks. We respect your time and make decisions quickly.</p>
+        <div class="badge-div"></div>
+        <div class="badge-item">
+          <div class="badge-num">Direct</div>
+          <div class="badge-lbl">No Middlemen</div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- STRIP -->
-  <div class="gold-strip">
-    <strong>Offers priced against the LBMA spot rate</strong> — the global gold pricing benchmark used by institutions worldwide.
+  <div class="strip">
+    <strong>Offers priced against the LBMA spot rate</strong> — the global benchmark used by institutions worldwide. &nbsp;
+    <a href="contact.html">Get your offer →</a>
+  </div>
+
+  <!-- WHY US -->
+  <div style="background: var(--bg); border-top: 1px solid var(--border);">
+    <div class="section-inner">
+      <p class="section-label">Why Gold & Silver Traders</p>
+      <h2>A buyer built for <em>your scale.</em></h2>
+      <p class="section-lead">Most gold buyers are set up for small retail. We operate at a different level — designed for bulk sellers who need a knowledgeable, well-capitalized counterparty.</p>
+      <div class="card-grid">
+        <div class="card">
+          <p class="card-num">01</p>
+          <h3>Live-Spot Pricing</h3>
+          <p>Anchored to real-time LBMA data. You'll see exactly how the offer is calculated — no mystery, no games.</p>
+        </div>
+        <div class="card">
+          <p class="card-num">02</p>
+          <h3>Large Quantities Welcome</h3>
+          <p>Kilos, hundreds of ounces, full estate lots — we specialize in the transactions local dealers can't handle.</p>
+        </div>
+        <div class="card">
+          <p class="card-num">03</p>
+          <h3>Complete Confidentiality</h3>
+          <p>Every inquiry is handled with full discretion. We protect your privacy absolutely, at every stage.</p>
+        </div>
+        <div class="card">
+          <p class="card-num">04</p>
+          <h3>Direct Buyer</h3>
+          <p>No layers of brokers. You deal with us directly — better pricing, cleaner process, faster decisions.</p>
+        </div>
+        <div class="card">
+          <p class="card-num">05</p>
+          <h3>International Capability</h3>
+          <p>Experienced in cross-border transactions. We navigate the logistics and compliance so you don't have to.</p>
+        </div>
+        <div class="card">
+          <p class="card-num">06</p>
+          <h3>Fast Process</h3>
+          <p>Initial contact to formal written offer in days. We respect your time and make decisions quickly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div style="border-top: 1px solid var(--border);">
+    <div class="section-inner">
+      <div class="two-col">
+        <div>
+          <p class="section-label">The Process</p>
+          <h2>Simple from first contact to <em>closing.</em></h2>
+          <p class="section-lead">Four clear steps — designed to be fast, transparent, and stress-free for serious sellers.</p>
+          <a href="how-it-works.html" class="btn-outline">Full Process Details</a>
+        </div>
+        <div class="process-steps">
+          <div class="p-step">
+            <div class="p-num">I</div>
+            <div class="p-content">
+              <h4>Initial Contact</h4>
+              <p>Reach out by email or form. Describe your holdings — type, quantity, form. No commitment required.</p>
+            </div>
+          </div>
+          <div class="p-step">
+            <div class="p-num">II</div>
+            <div class="p-content">
+              <h4>Confidential Consultation</h4>
+              <p>We follow up within one business day to discuss the specifics and determine next steps.</p>
+            </div>
+          </div>
+          <div class="p-step">
+            <div class="p-num">III</div>
+            <div class="p-content">
+              <h4>Formal Written Offer</h4>
+              <p>You receive a documented, spot-referenced offer. Clear, time-stamped, and fully explained.</p>
+            </div>
+          </div>
+          <div class="p-step">
+            <div class="p-num">IV</div>
+            <div class="p-content">
+              <h4>Transaction & Payment</h4>
+              <p>Secure transfer and wire payment. All terms agreed in writing before anything changes hands.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- WHO WE SERVE -->
-  <div style="border-top: 1px solid var(--border);">
+  <div style="background: var(--bg); border-top: 1px solid var(--border);">
     <div class="section-inner">
       <p class="section-label">Who We Work With</p>
       <h2>Built for sellers with <em>significant holdings.</em></h2>
-      <p class="section-lead">We work with a wide range of clients who share one thing: substantial gold and a need for a reliable, professional buyer.</p>
-
-      <div class="who-tags">
+      <p class="section-lead">From estate executors to international miners — if you have substantial gold, we want to hear from you.</p>
+      <div class="tag-group">
         <span class="tag">Estate Executors</span>
         <span class="tag">Trust Administrators</span>
         <span class="tag">Coin & Bullion Dealers</span>
@@ -299,16 +315,14 @@
         <span class="tag">International Sellers</span>
         <span class="tag">Refinery Outturns</span>
       </div>
-
-      <div style="margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="what-we-buy.html" class="btn-primary">See What We Buy</a>
+      <div style="margin-top: 2.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="what-we-buy.html" class="btn-primary">See What We Buy →</a>
         <a href="contact.html" class="btn-outline">Start a Conversation</a>
       </div>
     </div>
   </div>
 
   <footer id="site-footer"></footer>
-
   <script src="shared.js"></script>
   <script>renderNav('home'); renderFooter(); renderTicker();</script>
 </body>
