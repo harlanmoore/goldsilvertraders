@@ -7,6 +7,7 @@ function renderNav(activePage) {
     buy: 'what-we-buy.html',
     process: 'how-it-works.html',
     faq: 'faq.html',
+    about: 'about.html',
     contact: 'contact.html'
   };
 
@@ -24,6 +25,7 @@ function renderNav(activePage) {
         <div class="dropdown">
           <a href="${pages.buy}">What We Buy</a>
           <a href="${pages.process}">How It Works</a>
+          <a href="${pages.about}">About</a>
         </div>
       </li>
       <li><a href="${pages.faq}" ${activePage==='faq'?'class="active"':''}>FAQ</a></li>
