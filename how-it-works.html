@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How It Works — Gold & Silver Traders</title>
+  <meta name="description" content="Our gold buying process is straightforward: contact us, consult confidentially, receive a written offer, and close the transaction securely." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .process-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .process-step:last-child { border-bottom: none; }
+
+    .step-num-box {
+      width: 64px;
+      height: 64px;
+      background: var(--gold);
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .step-content p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 560px;
+    }
+
+    .step-detail {
+      margin-top: 1rem;
+      background: var(--bg-section);
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.25rem;
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+
+    .step-detail strong { color: var(--ink); }
+
+    .timeline-connector {
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem 0;
+    }
+    .timeline-connector::before {
+      content: '';
+      display: block;
+      width: 2px;
+      height: 24px;
+      background: var(--gold-rule);
+    }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .promise-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .promise-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--gold-pale);
+      border: 1.5px solid var(--gold-rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .promise-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .promise-item p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+
+  <div class="page-hero">
+    <h1>How It <em>Works</em></h1>
+    <p>A clear, documented process from first contact to final payment.</p>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="section-light">
+    <div class="section-inner">
+      <p class="section-label">The Process</p>
+      <h2>Straightforward from <em>start to close.</em></h2>
+      <p class="section-lead">We've refined this process across years of transactions to be as efficient and transparent as possible for serious sellers.</p>
+
+      <div style="margin-top: 1rem;">
+
+        <div class="process-step">
+          <div class="step-num-box">I</div>
+          <div class="step-content">
+            <h3>Initial Contact</h3>
+            <p>Reach out by email or through our contact form. Describe your holdings — type, quantity, form, and approximate purity if known. There is no commitment required at this stage, and all inquiries are held in confidence.</p>
+            <div class="step-detail">
+              <strong>What to include:</strong> Type of gold (bars, coins, jewelry, scrap, etc.), approximate quantity or weight, condition, and your general location. The more detail you provide, the faster we can respond meaningfully.
+            </div>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num-box">II</div>
+          <div class="step-content">
+            <h3>Confidential Consultation</h3>
+            <p>We'll follow up promptly — typically within one business day — to discuss the specifics of your holdings, answer your questions, and determine whether assay testing or additional documentation is needed before we can price the transaction.</p>
+            <div class="step-detail">
+              <strong>What happens here:</strong> We'll walk through what you have, explain how we value it, and be upfront about any steps needed before a formal offer can be issued. No pressure, no obligation.
+            </div>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num-box">III</div>
+          <div class="step-content">
+            <h3>Formal Written Offer</h3>
+            <p>You receive a formal written offer based on verified LBMA spot pricing and the specific characteristics of your holdings. The offer is clearly documented, time-stamped, and explained — you'll understand exactly how the number was reached.</p>
+            <div class="step-detail">
+              <strong>Pricing basis:</strong> All offers reference the London Bullion Market Association (LBMA) spot price at the time of the offer, adjusted for purity, form, and condition. We share our calculation openly.
+            </div>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num-box">IV</div>
+          <div class="step-content">
+            <h3>Transaction & Settlement</h3>
+            <p>Once you accept the offer, we coordinate logistics, physical transfer, and payment through a secure, fully documented process — structured to protect both parties throughout. Payment is made via secure wire transfer.</p>
+            <div class="step-detail">
+              <strong>Payment & logistics:</strong> All terms including payment method, timing, and transfer logistics are agreed upon in writing before any gold changes hands. We handle the coordination — you focus on the outcome.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- OUR COMMITMENTS -->
+  <div class="section-tinted">
+    <div class="section-inner">
+      <p class="section-label">Our Commitments to You</p>
+      <h2>What you can <em>count on.</em></h2>
+
+      <div class="promise-grid">
+        <div class="promise-item">
+          <div class="promise-icon">⚖</div>
+          <h4>Fair, Transparent Pricing</h4>
+          <p>Our offers show you the spot price, the purity adjustment, and the final number — no hidden deductions or surprise fees.</p>
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">🔒</div>
+          <h4>Full Confidentiality</h4>
+          <p>Your identity, holdings, and transaction details are never shared with third parties without your explicit written consent.</p>
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">📄</div>
+          <h4>Everything in Writing</h4>
+          <p>Every offer, term, and agreement is documented. Nothing is verbal-only. You have a clear paper trail at every step.</p>
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">⚡</div>
+          <h4>Prompt Responses</h4>
+          <p>We respond to all serious inquiries within one business day. Decisions are made quickly — we don't drag our feet.</p>
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">🌐</div>
+          <h4>International Compliance</h4>
+          <p>Cross-border transactions are handled in accordance with applicable regulations. We manage the complexity so you don't have to.</p>
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">✓</div>
+          <h4>No Obligation to Proceed</h4>
+          <p>You can receive a full consultation and formal offer with zero obligation to sell. We earn your business by being the best option, not by pressuring you.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="gold-strip">
+    Ready to get started? &nbsp;<a href="contact.html" style="color: var(--ink); font-weight: 700; text-decoration: underline;">Submit your inquiry →</a>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script src="shared.js"></script>
+  <script>renderNav('process'); renderFooter();</script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What We Buy — Gold & Silver Traders</title>
+  <meta name="description" content="We purchase gold bullion, coins, jewelry, scrap, placer gold, estate holdings, and more. Any form, any quantity. Get a fair offer from Gold & Silver Traders." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .buy-category {
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      background: var(--white);
+      padding: 2rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .buy-category:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); transform: translateY(-2px); }
+
+    .buy-category h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .buy-category .cat-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .buy-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .buy-items li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--text);
+      list-style: none;
+    }
+
+    .buy-items li::before {
+      content: '—';
+      color: var(--gold);
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+
+    .purity-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .purity-table th {
+      background: var(--ink);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+
+    .purity-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .purity-table tr:last-child td { border-bottom: none; }
+    .purity-table tr:nth-child(even) td { background: var(--bg-section); }
+
+    .purity-table td:first-child { font-weight: 600; color: var(--ink); }
+    .purity-table td:last-child { color: var(--gold); font-weight: 500; }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>What We <em>Buy</em></h1>
+    <p>Gold in virtually every form and origin, at the quantities that matter.</p>
+  </div>
+
+  <!-- INTRO -->
+  <div class="section-light">
+    <div class="section-inner" style="padding-bottom: 2rem;">
+      <p class="section-label">Our Scope</p>
+      <h2>Any form. Any origin. <em>Serious quantities.</em></h2>
+      <p class="section-lead">We acquire gold across a wide range of forms and origins. If you're unsure whether your holdings qualify, reach out — we'll give you a straight answer with no obligation.</p>
+    </div>
+  </div>
+
+  <!-- CATEGORIES GRID -->
+  <div class="section-tinted">
+    <div class="section-inner" style="padding-top: 2rem;">
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+
+        <div class="buy-category">
+          <h3>Bullion Bars</h3>
+          <p class="cat-desc">Investment-grade bars from recognized refiners and private mints, in any size.</p>
+          <ul class="buy-items">
+            <li>LBMA Good Delivery bars (400 oz)</li>
+            <li>Kilobars (32.15 troy oz)</li>
+            <li>100 oz, 10 oz, 1 oz bars</li>
+            <li>Fractional bars</li>
+            <li>Any recognized assayer or hallmark</li>
+            <li>Unassayed bars (subject to verification)</li>
+          </ul>
+        </div>
+
+        <div class="buy-category">
+          <h3>Bullion Coins</h3>
+          <p class="cat-desc">Government-minted and recognized bullion coins from all major issuing countries.</p>
+          <ul class="buy-items">
+            <li>South African Krugerrands</li>
+            <li>American Gold Eagles & Buffalos</li>
+            <li>Canadian Maple Leafs</li>
+            <li>Austrian Philharmonics</li>
+            <li>British Sovereigns & Britannias</li>
+            <li>Australian Kangaroos & Nuggets</li>
+            <li>Chinese Gold Pandas</li>
+          </ul>
+        </div>
+
+        <div class="buy-category">
+          <h3>Numismatic & Pre-1933 Coins</h3>
+          <p class="cat-desc">Collectible and historic coins evaluated for both gold content and numismatic value.</p>
+          <ul class="buy-items">
+            <li>U.S. pre-1933 gold coins</li>
+            <li>European historic gold coinage</li>
+            <li>Certified (PCGS / NGC) coins</li>
+            <li>Raw and uncertified collections</li>
+            <li>Partial and complete date sets</li>
+          </ul>
+        </div>
+
+        <div class="buy-category">
+          <h3>Gold Jewelry</h3>
+          <p class="cat-desc">Commercial and fine jewelry valued on gold content, evaluated fairly at current spot.</p>
+          <ul class="buy-items">
+            <li>10K, 14K, 18K, 22K, 24K pieces</li>
+            <li>Estate and antique jewelry</li>
+            <li>Broken or damaged pieces</li>
+            <li>Watches with gold cases or bands</li>
+            <li>Bulk jewelry lots from retailers</li>
+          </ul>
+        </div>
+
+        <div class="buy-category">
+          <h3>Scrap & Industrial Gold</h3>
+          <p class="cat-desc">Recovered and industrial-grade gold from a variety of commercial sources.</p>
+          <ul class="buy-items">
+            <li>Dental gold (crowns, bridges, inlays)</li>
+            <li>Electronic scrap & circuit boards</li>
+            <li>Gold-plated reclaim</li>
+            <li>Sweeps and floor sweeps</li>
+            <li>Refinery residues</li>
+          </ul>
+        </div>
+
+        <div class="buy-category">
+          <h3>Raw & Mined Gold</h3>
+          <p class="cat-desc">Directly sourced gold from mining operations, in all forms from field to foundry.</p>
+          <ul class="buy-items">
+            <li>Placer gold (nuggets & dust)</li>
+            <li>Hard rock mine production</li>
+            <li>Doré bars</li>
+            <li>Gold concentrates</li>
+            <li>Artisanal and small-scale mining output</li>
+          </ul>
+        </div>
+
+        <div class="buy-category">
+          <h3>Estate & Trust Holdings</h3>
+          <p class="cat-desc">Collections and portfolios requiring coordinated, documented liquidation.</p>
+          <ul class="buy-items">
+            <li>Full estate gold collections</li>
+            <li>Trust-held bullion and coins</li>
+            <li>Safe deposit box contents</li>
+            <li>Combined coin and jewelry lots</li>
+            <li>Executors and administrators welcome</li>
+          </ul>
+        </div>
+
+        <div class="buy-category">
+          <h3>Dealer & Institutional Lots</h3>
+          <p class="cat-desc">Wholesale acquisition from dealers, importers, and companies liquidating gold assets.</p>
+          <ul class="buy-items">
+            <li>Coin dealer inventory buyouts</li>
+            <li>Pawn shop gold portfolios</li>
+            <li>Jewelry manufacturer scrap</li>
+            <li>Corporate asset liquidations</li>
+            <li>Import/export consignments</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PURITY REFERENCE -->
+  <div class="section-light">
+    <div class="section-inner">
+      <p class="section-label">Quick Reference</p>
+      <h2>Common gold <em>purities we accept.</em></h2>
+      <p class="section-lead">Not sure about your gold's purity? Bring what you have — we can assist with identification and testing as part of our evaluation process.</p>
+
+      <table class="purity-table">
+        <thead>
+          <tr>
+            <th>Karat</th>
+            <th>Purity</th>
+            <th>Common Form</th>
+            <th>We Accept</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>24K</td><td>99.9%</td><td>Bullion bars, investment coins</td><td>Yes</td></tr>
+          <tr><td>22K</td><td>91.6%</td><td>Sovereigns, Krugerrands, Eagles</td><td>Yes</td></tr>
+          <tr><td>18K</td><td>75.0%</td><td>Fine jewelry, Swiss watches</td><td>Yes</td></tr>
+          <tr><td>14K</td><td>58.5%</td><td>U.S. jewelry, rings, bracelets</td><td>Yes</td></tr>
+          <tr><td>10K</td><td>41.7%</td><td>Commercial U.S. jewelry</td><td>Yes</td></tr>
+          <tr><td>Doré</td><td>Varies</td><td>Raw mine output, unrefined</td><td>Yes — verified</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CTA STRIP -->
+  <div class="gold-strip">
+    Have something not listed here? <strong>Contact us</strong> — we evaluate all serious inquiries.
+    &nbsp;&nbsp;<a href="contact.html" style="color: var(--ink); font-weight: 700; text-decoration: underline;">Get in touch →</a>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script src="shared.js"></script>
+  <script>renderNav('buy'); renderFooter();</script>
+</body>
+</html>
