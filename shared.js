@@ -44,7 +44,11 @@ function renderFooter() {
   document.getElementById('site-footer').innerHTML = `
     <p>&copy; ${new Date().getFullYear()} Gold &amp; Silver Traders. All rights reserved.</p>
     <p>All transactions subject to applicable federal, state, and international regulations.</p>
-    <p><a href="mailto:harlan@goldsilvertraders.com">harlan@goldsilvertraders.com</a></p>
+    <p>
+      <a href="mailto:harlan@goldsilvertraders.com">harlan@goldsilvertraders.com</a>
+      &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="https://wa.me/14252691221" target="_blank" rel="noopener">WhatsApp: +1 (425) 269-1221</a>
+    </p>
   `;
 }
 
