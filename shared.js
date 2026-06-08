@@ -1,6 +1,5 @@
 // ── CONFIGURATION ──
-// Sign up free at https://gold-api.com to get your API key (takes 60 seconds)
-const GOLD_API_KEY = 'YOUR_GOLD_API_KEY';
+// No API key needed — uses freegoldapi.com (completely free, no signup)
 
 // ── PAGES ──
 const pages = {
@@ -54,56 +53,56 @@ async function renderTicker() {
   const el = document.getElementById('metals-ticker');
   if (!el) return;
 
-  // Metals to display: symbol, label
-  const metals = [
-    { symbol: 'XAU', label: 'Gold / oz' },
-    { symbol: 'XAG', label: 'Silver / oz' },
-    { symbol: 'XPT', label: 'Platinum / oz' },
-    { symbol: 'XPD', label: 'Palladium / oz' },
-  ];
+  try {
+    const res  = await fetch('https://freegoldapi.com/data/latest.json');
+    const data = await res.json();
 
-  // Show loading state
-  el.innerHTML = metals.map(m => `
-    <div class="ticker-item">
-      <span class="ticker-metal">${m.label}</span>
-      <span class="ticker-price" style="color:var(--muted)">—</span>
-    </div>
-  `).join('');
+    // Get today and yesterday prices for % change
+    const sorted  = data.filter(d => d.price > 0).sort((a,b) => a.date.localeCompare(b.date));
+    const latest  = sorted[sorted.length - 1];
+    const prev    = sorted[sorted.length - 2];
 
-  // If no API key, show placeholder message
-  if (GOLD_API_KEY === 'YOUR_GOLD_API_KEY') {
+    const price   = latest.price;
+    const change  = prev ? ((price - prev.price) / prev.price * 100) : 0;
+    const dir     = change >= 0 ? 'up' : 'down';
+    const arrow   = change >= 0 ? '▲' : '▼';
+
+    const fmt = (n) => n.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 });
+
+    // Gold/Silver ratio dataset for silver estimate
+    let silverHTML = '';
+    try {
+      const ratioRes  = await fetch('https://freegoldapi.com/data/gold_silver_ratio_enriched.csv');
+      const ratioText = await ratioRes.text();
+      const lines     = ratioText.trim().split('
+').filter(l => l.trim());
+      const lastLine  = lines[lines.length - 1];
+      const parts     = lastLine.split(',');
+      const ratio     = parseFloat(parts[1]);
+      if (ratio > 0) {
+        const silverPrice = price / ratio;
+        silverHTML = `
+          <div class="ticker-item">
+            <span class="ticker-metal">Silver / oz</span>
+            <span class="ticker-price">${fmt(silverPrice)}</span>
+          </div>`;
+      }
+    } catch(e) {}
+
     el.innerHTML = `
       <div class="ticker-item">
-        <span class="ticker-metal" style="color:var(--muted)">Add your GoldAPI.io key to shared.js to show live prices</span>
+        <span class="ticker-metal">Gold / oz</span>
+        <span class="ticker-price">${fmt(price)}</span>
+        <span class="ticker-change ${dir}">${arrow} ${Math.abs(change).toFixed(2)}%</span>
+      </div>
+      ${silverHTML}
+      <div class="ticker-item" style="margin-left:0.5rem;">
+        <span class="ticker-metal" style="font-size:0.58rem; color:var(--muted)">LBMA ref · updated daily</span>
       </div>`;
-    return;
+
+  } catch(e) {
+    el.innerHTML = `<div class="ticker-item"><span class="ticker-metal" style="color:var(--muted)">Price data temporarily unavailable</span></div>`;
   }
-
-  // Fetch each metal
-  const results = await Promise.allSettled(
-    metals.map(m =>
-      fetch(`https://www.goldapi.io/api/${m.symbol}/USD`, {
-        headers: { 'x-access-token': GOLD_API_KEY, 'Content-Type': 'application/json' }
-      }).then(r => r.json()).then(d => ({ ...d, label: m.label }))
-    )
-  );
-
-  el.innerHTML = results.map(r => {
-    if (r.status !== 'fulfilled' || !r.value?.price) {
-      return `<div class="ticker-item"><span class="ticker-metal" style="color:var(--muted)">Unavailable</span></div>`;
-    }
-    const d = r.value;
-    const price = d.price.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 });
-    const chp   = d.chp ?? 0;
-    const dir   = chp >= 0 ? 'up' : 'down';
-    const arrow = chp >= 0 ? '▲' : '▼';
-    return `
-      <div class="ticker-item">
-        <span class="ticker-metal">${d.label}</span>
-        <span class="ticker-price">${price}</span>
-        <span class="ticker-change ${dir}">${arrow} ${Math.abs(chp).toFixed(2)}%</span>
-      </div>`;
-  }).join('');
 }
 
 // ── FAQ ACCORDION ──
